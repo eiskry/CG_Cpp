@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2d_figure", "2d_figure\2d_figure.vcxproj", "{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Debug|x64.ActiveCfg = Debug|x64
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Debug|x64.Build.0 = Debug|x64
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Debug|x86.Build.0 = Debug|Win32
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Release|x64.ActiveCfg = Release|x64
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Release|x64.Build.0 = Release|x64
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Release|x86.ActiveCfg = Release|Win32
+		{77C0747C-BAD7-43C6-9DFC-56CFB031F1DC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48094DB7-6903-4D98-B878-4A3C74665ACE}
+	EndGlobalSection
+EndGlobal

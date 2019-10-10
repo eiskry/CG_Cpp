@@ -1,0 +1,8 @@
+﻿  01_simple_window.cpp
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\task1\01_simple_window\simple_window\01_simple_window.cpp(25,3): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  コード生成しています。
+  102 of 102 functions (100.0%) were compiled.
+    100 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  simple_window.vcxproj -> C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\task1\01_simple_window\Release\simple_window.exe

@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\mouse_slick\mouse_slick\Source.cpp(19,23): warning C4305: '引数': 'double' から 'GLfloat' へ切り詰めます。
+  mouse_slick.vcxproj -> C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\mouse_slick\Debug\mouse_click.exe

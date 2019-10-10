@@ -1,0 +1,8 @@
+﻿  Source.cpp
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(16,33): error C2440: '初期化中': 'const char [13]' から 'char *' に変換できません。
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(16,18): message : 文字列リテラルからの変換では const 修飾子が失われます (/Zc:strictStrings を参照)
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(21,32): error C2664: 'void strout(float,float,char *)': 引数 3 を 'const char [12]' から 'char *' へ変換できません。
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(21,19): message : 文字列リテラルからの変換では const 修飾子が失われます (/Zc:strictStrings を参照)
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(8,6): message : 'strout' の宣言を確認してください
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(24,29): warning C4305: '引数': 'double' から 'GLfloat' へ切り詰めます。
+C:\Users\RYOTA\OneDrive\デスクトップ\openGL\cg_basic\examples\letter_display\letter_display\Source.cpp(25,27): warning C4305: '引数': 'double' から 'GLfloat' へ切り詰めます。
