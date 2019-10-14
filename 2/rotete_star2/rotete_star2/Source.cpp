@@ -31,7 +31,7 @@ void display(void) {
 	glCallList(ID_DRAW_STAR);
 	glPopMatrix();
 
-	/*
+	/*‚P‚Â–Ú‚Ì•û–@
 	glPushMatrix();
 	glTranslated(0.25 * cos(rotateAngle), 0.25 * sin(rotateAngle), 0);
 	glColor3d(0.0, 0.0, 0.0);
@@ -40,9 +40,10 @@ void display(void) {
 	glScaled(0.2, 0.2, 1.0);
 	glCallList(ID_DRAW_STAR);
 	glPopMatrix();
-	//*/
+	*/
 
-	//*
+
+	//2‚Â–Ú‚Ì•û–@
 	glPushMatrix();
 	glColor3d(0.0, 0.0, 0.0);
 
@@ -53,7 +54,7 @@ void display(void) {
 
 	glCallList(ID_DRAW_STAR);
 	glPopMatrix();
-	//*/
+	
 
 	glPushMatrix();
 	glColor3d(0.0, 1.0, 0.0);
