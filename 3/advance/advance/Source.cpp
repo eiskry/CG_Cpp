@@ -11,7 +11,7 @@
 union color {
 	struct { float r, g, b, a; };
 	float colors[4];
-};		
+};
 
 // 個々のティーポットの色や、傾き角度に関する情報を保持するための構造体
 struct TeapotData {
@@ -47,7 +47,7 @@ int g_WindowHeight = 512;
 // glutには円筒を描画するための関数が無いので、独自に準備
 void displayCylinder(float radius, float height, int nSlices) {
 	// 天頂面
-	const float deltaTheta = 2 * M_PI/ (float)nSlices;
+	const float deltaTheta = 2 * M_PI / (float)nSlices;
 
 	glNormal3f(0, 1, 0);
 	glBegin(GL_TRIANGLE_FAN);
@@ -126,11 +126,15 @@ void display() {
 	displayCylinder(g_OuterRadius, 0.7f, 64);
 	glPopMatrix();
 
-	// 屋根の上のティーポット
+	// 屋根の上の球体
 	glPushMatrix();
 	glTranslatef(0, g_HeightAmplitude + g_HeightOffset + 5.5f, 0);
 	glRotatef(g_RotationDegree, 0, 1, 0); // 回転させている
-	glutSolidTeapot(g_TeapotSize);
+	
+	//
+	glutSolidSphere(1.0, 20, 20);
+
+
 	glPopMatrix();
 
 	const float deltaTheta = 360 / (float)g_NumTeapots;
@@ -145,7 +149,7 @@ void display() {
 		const float zPos = g_InnerRadius * cosf(thetaRad);
 
 		// ティーポットの高さ方向の値
-		const float yPos = g_HeightOffset*10*0.5*(sin((g_RotationDegree/16)+M_PI/2*i)+1); // ★この値を少しずつ変化させることでティーポットが上下に移動する
+		const float yPos = g_HeightOffset * 10 * 0.5 * (sin((g_RotationDegree / 16) + M_PI / 2 * i) + 1); // ★この値を少しずつ変化させることでティーポットが上下に移動する
 
 		// ティーポットの色の指定
 		glMaterialfv(GL_FRONT, GL_AMBIENT, g_Teapots[i].ambient.colors);
@@ -153,12 +157,20 @@ void display() {
 		glMaterialfv(GL_FRONT, GL_SPECULAR, g_Teapots[i].specular.colors);
 		glMaterialfv(GL_FRONT, GL_SHININESS, &g_Teapots[i].shininess);
 
-		// ティーポットの描画
+		// ティーポット,ドーナツ図形を交互に描画
 		glPushMatrix();
 		glTranslatef(xPos, yPos, zPos);
 		glRotatef(thetaDegree, 0, 1, 0);
 		glRotatef(g_Teapots[i].angle, 0, 0, 1);
-		glutSolidTeapot(1.2f * g_TeapotSize);
+		if (i % 2 == 0) {
+			glutSolidTeapot(1.2f * g_TeapotSize);
+		}
+		else {
+			//glutSolidSphere(1.0, 20, 20);
+			glRotated(90, 4, 0, 1);
+			glutSolidTorus(0.5, 1.0, 20, 20);
+			
+		}
 		glPopMatrix();
 
 		// ティーポットを支える柱の色の指定 
@@ -244,8 +256,8 @@ void timer(int val) {
 
 	// ★ 下のコードでは視点が固定だけど
 	// ここで  g_EyeY と g_EyeZ の値を変えることで視点位置を変化させることができる
-	g_EyeY = g_EyeCenterY*(sin(g_RotationDegree/32-M_PI/4)+1);
-	g_EyeZ = g_EyeCenterZ*0.4*(sin(g_RotationDegree/32)+3);
+	g_EyeY = g_EyeCenterY * (sin(g_RotationDegree / 32 - M_PI / 4) + 1);
+	g_EyeZ = g_EyeCenterZ * 0.4 * (sin(g_RotationDegree / 32) + 3);
 
 	glutPostRedisplay();
 
@@ -268,7 +280,7 @@ int main(int argc, char** argv) {
 	glutInitWindowSize(g_WindowWidth, g_WindowHeight);
 
 	// ウィンドウタイトルに表示する文字列を指定する場合
-	glutCreateWindow("Teapot Merry-Go-Round");
+	glutCreateWindow("Merry-Go-Round");
 
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape); // ウィンドウサイズが変更されたときに実行される関数を指定
