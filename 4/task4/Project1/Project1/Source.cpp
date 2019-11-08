@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// 3ŸŒ³ƒxƒNƒgƒ‹‚ğˆµ‚¤‚½‚ß‚ÌƒNƒ‰ƒX
+// 3æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã‚’æ‰±ã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹
 class Vector3d {
 public:
 	double x, y, z;
@@ -13,63 +13,93 @@ public:
 	Vector3d(double _x, double _y, double _z) { x = _x; y = _y; z = _z; }
 	void set(double _x, double _y, double _z) { x = _x; y = _y; z = _z; }
 
-	// ’·‚³‚ğ1‚É³‹K‰»‚·‚é
+	// é•·ã•ã‚’1ã«æ­£è¦åŒ–ã™ã‚‹
 	void normalize() {
 		double len = length();
 		x /= len; y /= len; z /= len;
 	}
 
-	// ’·‚³‚ğ•Ô‚·
+	// é•·ã•ã‚’è¿”ã™
 	double length() { return sqrt(x * x + y * y + z * z); }
 
-	// s”{‚·‚é
+	// så€ã™ã‚‹
 	void scale(const double s) { x *= s; y *= s; z *= s; }
 
-	// ‰ÁZ‚Ì’è‹`
+	// åŠ ç®—ã®å®šç¾©
 	Vector3d operator+(Vector3d v) { return Vector3d(x + v.x, y + v.y, z + v.z); }
 
-	// Œ¸Z‚Ì’è‹`
-	// š‰ÁZ‚Ì’è‹`‚ğQl‚ÉAŒ¸Z‚ÌƒR[ƒh‚ğ‹Lq‚µ‚Ä‚İ‚é
+	// æ¸›ç®—ã®å®šç¾©
+	// â˜…åŠ ç®—ã®å®šç¾©ã‚’å‚è€ƒã«ã€æ¸›ç®—ã®ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¿°ã—ã¦ã¿ã‚‹
+	Vector3d operator-(Vector3d v) { return Vector3d(x - v.x, y - v.y, z - v.z); }
 
-	// “àÏ‚Ì’è‹`
+	// å†…ç©ã®å®šç¾©
 	double operator*(Vector3d v) { return x * v.x + y * v.y + z * v.z; }
 
-	// ŠOÏ‚Ì’è‹`
+	// å¤–ç©ã®å®šç¾©
 	Vector3d operator%(Vector3d v) { return Vector3d(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
 
-	// ‘ã“ü‰‰Z‚Ì’è‹`
+	// ä»£å…¥æ¼”ç®—ã®å®šç¾©
 	Vector3d& operator=(const Vector3d& v) { x = v.x; y = v.y; z = v.z; return (*this); }
 
-	// ‰ÁZ‘ã“ü‚Ì’è‹`
+	// åŠ ç®—ä»£å…¥ã®å®šç¾©
 	Vector3d& operator+=(const Vector3d& v) { x += v.x; y += v.y; z += v.z; return (*this); }
 
-	// Œ¸Z‘ã“ü‚Ì’è‹`
-	// š‰ÁZ‘ã“ü‚Ì’è‹`‚ğQl‚ÉAŒ¸Z‘ã“ü‚ÌƒR[ƒh‚ğ‹Lq‚µ‚Ä‚İ‚é
+	// æ¸›ç®—ä»£å…¥ã®å®šç¾©
+	// â˜…åŠ ç®—ä»£å…¥ã®å®šç¾©ã‚’å‚è€ƒã«ã€æ¸›ç®—ä»£å…¥ã®ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¿°ã—ã¦ã¿ã‚‹
+	Vector3d& operator-=(const Vector3d& v) { x -= v.x; y -= v.y; z -= v.z; return (*this); }
 
-	// ’l‚ğo—Í‚·‚é
+
+	// å€¤ã‚’å‡ºåŠ›ã™ã‚‹
 	void print() { printf("Vector3d(%f %f %f)\n", x, y, z); }
 };
 
-// ƒ}ƒCƒiƒX‚Ì•„†‚Ì•t‚¢‚½ƒxƒNƒgƒ‹‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áFb=(-a); ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
+// ãƒã‚¤ãƒŠã‚¹ã®ç¬¦å·ã®ä»˜ã„ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼šb=(-a); ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
 Vector3d operator-(const Vector3d& v) { return(Vector3d(-v.x, -v.y, -v.z)); }
 
-// ƒxƒNƒgƒ‹‚ÆÀ”‚ÌÏ‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áF c=5*a+2*b; c=b*3; ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
+// ãƒ™ã‚¯ãƒˆãƒ«ã¨å®Ÿæ•°ã®ç©ã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼š c=5*a+2*b; c=b*3; ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
 Vector3d operator*(const double& k, const Vector3d& v) { return(Vector3d(k * v.x, k * v.y, k * v.z)); }
 Vector3d operator*(const Vector3d& v, const double& k) { return(Vector3d(v.x * k, v.y * k, v.z * k)); }
 
-// ƒxƒNƒgƒ‹‚ğÀ”‚ÅŠ„‚é‘€ì‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áF c=a/2.3; ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
+// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å®Ÿæ•°ã§å‰²ã‚‹æ“ä½œã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼š c=a/2.3; ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
 Vector3d operator/(const Vector3d& v, const double& k) { return(Vector3d(v.x / k, v.y / k, v.z / k)); }
 
 
 int main(int argc, char** argv) {
-	// ƒxƒNƒgƒ‹‚Ì‰ÁZ‚Ì—á
-	Vector3d a(1, 1, 1);
+	// ãƒ™ã‚¯ãƒˆãƒ«ã®åŠ ç®—ã®ä¾‹
+	/*Vector3d a(1, 1, 1);
 	Vector3d b(3, 2, -1);
 	Vector3d c = a + b;
-	c.print();
+	c.print();*/
 
-	// Visual Studio ‚ÅƒRƒ“ƒ\[ƒ‹‚ª‚·‚®‚É•Â‚¶‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ß‚É‚ÍŸ‚ÌƒRƒƒ“ƒgƒAƒEƒg‚ğ‚Í‚¸‚·
-	//system("pause"); 
+	Vector3d a(2, 3, 4);
+	Vector3d b(3, 5, -2);
+	Vector3d c(2, -1, 1);
+	printf("(a)\n");
+	Vector3d d = a - b;
+	d.print();
+
+	printf("(b)\n");
+	Vector3d e = 3 * a - 2 * b;
+	e.print();
+
+	printf("(c)\n");
+	double f = a * b;
+	printf("%lf\n",f);
+
+	printf("(d)\n");
+	Vector3d g = a % b;
+	double len = g.length();
+	Vector3d h = g*(1 / len);
+	h.print();
+
+	printf("(e)\n");
+	Vector3d i = a + 2*b;
+	Vector3d j = i%c;
+	j.print();
+
+
+	// Visual Studio ã§ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãŒã™ãã«é–‰ã˜ãªã„ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã«ã¯æ¬¡ã®ã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã‚’ã¯ãšã™
+	system("pause"); 
 	return 0;
 }
 
