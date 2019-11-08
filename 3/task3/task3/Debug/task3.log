@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Source.cpp
 C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(41,40): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
 C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(50,35): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
@@ -11,3 +12,18 @@ C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(243,26): warning
 C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(247,23): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
 C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(248,27): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
   task3.vcxproj -> C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\Debug\task3.exe
+=======
+﻿  Source.cpp
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(41,40): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(50,35): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(50,25): warning C4244: '初期化中': 'double' から 'const float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(143,45): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(143,24): warning C4244: '初期化中': 'double' から 'const float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(148,43): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(148,20): warning C4244: '初期化中': 'double' から 'const float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(243,58): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(243,26): warning C4244: '初期化中': 'double' から 'const float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(247,23): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\task3\Source.cpp(248,27): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  task3.vcxproj -> C:\Users\RYOTA\Desktop\openGL\cg_basic\3\task3\Debug\task3.exe
+>>>>>>> master

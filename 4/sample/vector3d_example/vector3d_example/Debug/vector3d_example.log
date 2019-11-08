@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿  Source.cpp
   vector3d_example.vcxproj -> C:\Users\RYOTA\Desktop\openGL\cg_basic\4\sample\vector3d_example\Debug\vector3d_example.exe
+=======
+﻿  Source.cpp
+  vector3d_example.vcxproj -> C:\Users\RYOTA\Desktop\openGL\cg_basic\4\sample\vector3d_example\Debug\vector3d_example.exe
+>>>>>>> master
