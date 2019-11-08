@@ -104,6 +104,9 @@ void display() {
 	glMaterialfv(GL_FRONT, GL_SPECULAR, specularColor);
 	glMaterialfv(GL_FRONT, GL_SHININESS, &shininess);
 
+	//全体の回転
+	glRotatef(g_RotationDegree, 0, 1, 0);
+
 	// 屋根
 	glPushMatrix();
 	glTranslatef(0, g_HeightAmplitude + g_HeightOffset + 3.f, 0);
@@ -142,7 +145,7 @@ void display() {
 		const float zPos = g_InnerRadius * cosf(thetaRad);
 
 		// ティーポットの高さ方向の値
-		const float yPos = g_HeightOffset; // ★この値を少しずつ変化させることでティーポットが上下に移動する
+		const float yPos = g_HeightOffset*10*0.5*(sin((g_RotationDegree/16)+M_PI/2*i)+1); // ★この値を少しずつ変化させることでティーポットが上下に移動する
 
 		// ティーポットの色の指定
 		glMaterialfv(GL_FRONT, GL_AMBIENT, g_Teapots[i].ambient.colors);
@@ -241,8 +244,8 @@ void timer(int val) {
 
 	// ★ 下のコードでは視点が固定だけど
 	// ここで  g_EyeY と g_EyeZ の値を変えることで視点位置を変化させることができる
-	g_EyeY = g_EyeCenterY;
-	g_EyeZ = g_EyeCenterZ;
+	g_EyeY = g_EyeCenterY*(sin(g_RotationDegree/32-M_PI/4)+1);
+	g_EyeZ = g_EyeCenterZ*0.4*(sin(g_RotationDegree/32)+3);
 
 	glutPostRedisplay();
 
