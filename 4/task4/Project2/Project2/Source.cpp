@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// 3æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã‚’æ‰±ã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹
+// 3ŸŒ³ƒxƒNƒgƒ‹‚ğˆµ‚¤‚½‚ß‚ÌƒNƒ‰ƒX
 class Vector3d {
 public:
 	double x, y, z;
@@ -13,169 +13,169 @@ public:
 	Vector3d(double _x, double _y, double _z) { x = _x; y = _y; z = _z; }
 	void set(double _x, double _y, double _z) { x = _x; y = _y; z = _z; }
 
-	// é•·ã•ã‚’1ã«æ­£è¦åŒ–ã™ã‚‹
+	// ’·‚³‚ğ1‚É³‹K‰»‚·‚é
 	void normalize() {
 		double len = length();
 		x /= len; y /= len; z /= len;
 	}
 
-	// é•·ã•ã‚’è¿”ã™
+	// ’·‚³‚ğ•Ô‚·
 	double length() { return sqrt(x * x + y * y + z * z); }
 
-	// så€ã™ã‚‹
+	// s”{‚·‚é
 	void scale(const double s) { x *= s; y *= s; z *= s; }
 
-	// åŠ ç®—ã®å®šç¾©
+	// ‰ÁZ‚Ì’è‹`
 	Vector3d operator+(Vector3d v) { return Vector3d(x + v.x, y + v.y, z + v.z); }
 
-	// æ¸›ç®—ã®å®šç¾©
-	// â˜…åŠ ç®—ã®å®šç¾©ã‚’å‚è€ƒã«ã€æ¸›ç®—ã®ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¿°ã—ã¦ã¿ã‚‹
+	// Œ¸Z‚Ì’è‹`
+	// š‰ÁZ‚Ì’è‹`‚ğQl‚ÉAŒ¸Z‚ÌƒR[ƒh‚ğ‹Lq‚µ‚Ä‚İ‚é
 	Vector3d operator-(Vector3d v) { return Vector3d(x - v.x, y - v.y, z - v.z); }
 
 
-	// å†…ç©ã®å®šç¾©
+	// “àÏ‚Ì’è‹`
 	double operator*(Vector3d v) { return x * v.x + y * v.y + z * v.z; }
 
-	// å¤–ç©ã®å®šç¾©
+	// ŠOÏ‚Ì’è‹`
 	Vector3d operator%(Vector3d v) { return Vector3d(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
 
-	// ä»£å…¥æ¼”ç®—ã®å®šç¾©
+	// ‘ã“ü‰‰Z‚Ì’è‹`
 	Vector3d& operator=(const Vector3d& v) { x = v.x; y = v.y; z = v.z; return (*this); }
 
-	// åŠ ç®—ä»£å…¥ã®å®šç¾©
+	// ‰ÁZ‘ã“ü‚Ì’è‹`
 	Vector3d& operator+=(const Vector3d& v) { x += v.x; y += v.y; z += v.z; return (*this); }
 
-	// æ¸›ç®—ä»£å…¥ã®å®šç¾©
-	// â˜…åŠ ç®—ä»£å…¥ã®å®šç¾©ã‚’å‚è€ƒã«ã€æ¸›ç®—ä»£å…¥ã®ã‚³ãƒ¼ãƒ‰ã‚’è¨˜è¿°ã—ã¦ã¿ã‚‹
+	// Œ¸Z‘ã“ü‚Ì’è‹`
+	// š‰ÁZ‘ã“ü‚Ì’è‹`‚ğQl‚ÉAŒ¸Z‘ã“ü‚ÌƒR[ƒh‚ğ‹Lq‚µ‚Ä‚İ‚é
 	Vector3d& operator-=(const Vector3d& v) { x -= v.x; y -= v.y; z -= v.z; return (*this); }
 
 
-	// å€¤ã‚’å‡ºåŠ›ã™ã‚‹
+	// ’l‚ğo—Í‚·‚é
 	void print() { printf("Vector3d(%f %f %f)\n", x, y, z); }
 };
 
-// ãƒã‚¤ãƒŠã‚¹ã®ç¬¦å·ã®ä»˜ã„ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼šb=(-a); ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
+// ƒ}ƒCƒiƒX‚Ì•„†‚Ì•t‚¢‚½ƒxƒNƒgƒ‹‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áFb=(-a); ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
 Vector3d operator-(const Vector3d& v) { return(Vector3d(-v.x, -v.y, -v.z)); }
 
-// ãƒ™ã‚¯ãƒˆãƒ«ã¨å®Ÿæ•°ã®ç©ã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼š c=5*a+2*b; c=b*3; ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
+// ƒxƒNƒgƒ‹‚ÆÀ”‚ÌÏ‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áF c=5*a+2*b; c=b*3; ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
 Vector3d operator*(const double& k, const Vector3d& v) { return(Vector3d(k * v.x, k * v.y, k * v.z)); }
 Vector3d operator*(const Vector3d& v, const double& k) { return(Vector3d(v.x * k, v.y * k, v.z * k)); }
 
-// ãƒ™ã‚¯ãƒˆãƒ«ã‚’å®Ÿæ•°ã§å‰²ã‚‹æ“ä½œã‚’æ‰±ãˆã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å®šç¾© ä¾‹ï¼š c=a/2.3; ã®ã‚ˆã†ã«è¨˜è¿°ã§ãã‚‹
+// ƒxƒNƒgƒ‹‚ğÀ”‚ÅŠ„‚é‘€ì‚ğˆµ‚¦‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì’è‹` —áF c=a/2.3; ‚Ì‚æ‚¤‚É‹Lq‚Å‚«‚é
 Vector3d operator/(const Vector3d& v, const double& k) { return(Vector3d(v.x / k, v.y / k, v.z / k)); }
 
 
-// çƒä½“ã®æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ã‚¯ãƒ©ã‚¹
+// ‹…‘Ì‚Ìî•ñ‚ğŠi”[‚·‚éƒNƒ‰ƒX
 class Sphere {
 public:
-	Vector3d position; // ä¸­å¿ƒä½ç½®
-	float color[3];    // æç”»è‰²
+	Vector3d position; // ’†SˆÊ’u
+	float color[3];    // •`‰æF
 
 	void setColor(float r, float g, float b) {
 		color[0] = r; color[1] = g; color[2] = b;
 	}
 
-	// ã“ã®çƒä½“ã‚’æç”»ã™ã‚‹ãƒ¡ãƒ³ãƒé–¢æ•°
+	// ‚±‚Ì‹…‘Ì‚ğ•`‰æ‚·‚éƒƒ“ƒoŠÖ”
 	void display() {
-		glPushMatrix(); // ç¾åœ¨ã®ãƒ¢ãƒ‡ãƒ«å¤‰æ›è¡Œåˆ—ã‚’é€€é¿ã—ã¦ãŠã
+		glPushMatrix(); // Œ»İ‚Ìƒ‚ƒfƒ‹•ÏŠ·s—ñ‚ğ‘Ş”ğ‚µ‚Ä‚¨‚­
 
-		// åº§æ¨™ã®å¹³è¡Œç§»å‹•ã¨ã‚¹ã‚±ãƒ¼ãƒ«å¤‰æ›ã‚’æ–½ã—ã¦çƒä½“ã‚’æç”»ã™ã‚‹
+		// À•W‚Ì•½sˆÚ“®‚ÆƒXƒP[ƒ‹•ÏŠ·‚ğ{‚µ‚Ä‹…‘Ì‚ğ•`‰æ‚·‚é
 		glTranslated(position.x, position.y, position.z);
 		glScaled(2, 2, 2);
 		glutSolidSphere(1.0, 32, 32);
 
-		glPopMatrix();  // é€€é¿ã—ã¦ã„ãŸãƒ¢ãƒ‡ãƒ«å¤‰æ›è¡Œåˆ—ã‚’æˆ»ã™
+		glPopMatrix();  // ‘Ş”ğ‚µ‚Ä‚¢‚½ƒ‚ƒfƒ‹•ÏŠ·s—ñ‚ğ–ß‚·
 	}
 };
 
-// 3ã¤ã®çƒä½“ã‚’æº–å‚™ã—ã¦ãŠã
+// 3‚Â‚Ì‹…‘Ì‚ğ€”õ‚µ‚Ä‚¨‚­
 Sphere g_Sphere[3];
 
-// é¸æŠçŠ¶æ…‹ã«ã‚ã‚‹çƒä½“ã®IDç•ªå·ï¼ˆ0,1,2ï¼‰ã‚’ä¿æŒã™ã‚‹ã€‚é¸æŠçŠ¶æ…‹ã®çƒãŒç„¡ã‘ã‚Œã°-1ã¨ã™ã‚‹ã€‚
+// ‘I‘ğó‘Ô‚É‚ ‚é‹…‘Ì‚ÌID”Ô†i0,1,2j‚ğ•Û‚·‚éB‘I‘ğó‘Ô‚Ì‹…‚ª–³‚¯‚ê‚Î-1‚Æ‚·‚éB
 int g_SelectedSphereID = -1;
 
-// ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸ3æ¬¡å…ƒåº§æ¨™ã‚’ä¿æŒã™ã‚‹
+// ƒNƒŠƒbƒN‚³‚ê‚½3ŸŒ³À•W‚ğ•Û‚·‚é
 Vector3d g_SelectedPos;
 
-// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã‚’ä¿æŒã™ã‚‹
+// ƒEƒBƒ“ƒhƒEƒTƒCƒY‚ğ•Û‚·‚é
 int g_WindowWidth = 512;
 int g_WindowHeight = 512;
 
-// é¸æŠã—ãŸçƒä½“ã®IDç•ªå·ï¼ˆ0,1,2ï¼‰ã‚’è¿”ã™
-// é¸æŠã—ãŸçƒä½“ãŒç„¡ã„å ´åˆã¯ -1 ã‚’è¿”ã™
+// ‘I‘ğ‚µ‚½‹…‘Ì‚ÌID”Ô†i0,1,2j‚ğ•Ô‚·
+// ‘I‘ğ‚µ‚½‹…‘Ì‚ª–³‚¢ê‡‚Í -1 ‚ğ•Ô‚·
 int pickSphere(int x, int y) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 
-	// ç…§æ˜åŠ¹æœã‚’ç„¡ãã—ã¦å˜è‰²ã§æç”»ã™ã‚‹
+	// Æ–¾Œø‰Ê‚ğ–³‚­‚µ‚Ä’PF‚Å•`‰æ‚·‚é
 	glDisable(GL_LIGHTING);
 
-	// 3ã¤ã®çƒä½“ã‚’æç”»ã™ã‚‹
+	// 3‚Â‚Ì‹…‘Ì‚ğ•`‰æ‚·‚é
 	for (int i = 0; i < 3; i++) {
-		// RGBã®Ræˆåˆ†ã«çƒä½“ã®IDã‚’è¨­å®šã™ã‚‹(unsigned byteå‹)
+		// RGB‚ÌR¬•ª‚É‹…‘Ì‚ÌID‚ğİ’è‚·‚é(unsigned byteŒ^)
 		glColor3ub(i, 0, 0);
 		g_Sphere[i].display();
 	}
 
-	// â˜…æˆæ¥­ã‚¹ãƒ©ã‚¤ãƒ‰ã‚’å‚è€ƒã«æ¬¡ã®ã‚ˆã†ãªãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹
-	// â˜…glReadPixels é–¢æ•°ã‚’ã¤ã‹ã£ã¦ã€ã‚¯ãƒªãƒƒã‚¯ã—ãŸä½ç½®ãŒä½•è‰²ã§ã‚ã‚‹ã‹å–å¾—ã™ã‚‹
-	// â˜…å–å¾—ã—ãŸè‰²ã‚’è¦‹ã¦ã€ã©ã®çƒä½“ã‚’é¸æŠã—ãŸã‹åˆ¤å®šã—ã€ãã®IDã‚’ return ã™ã‚‹ã€‚
+	// šö‹ÆƒXƒ‰ƒCƒh‚ğQl‚ÉŸ‚Ì‚æ‚¤‚ÈƒvƒƒOƒ‰ƒ€ƒR[ƒh‚ğ’Ç‰Á‚·‚é
+	// šglReadPixels ŠÖ”‚ğ‚Â‚©‚Á‚ÄAƒNƒŠƒbƒN‚µ‚½ˆÊ’u‚ª‰½F‚Å‚ ‚é‚©æ“¾‚·‚é
+	// šæ“¾‚µ‚½F‚ğŒ©‚ÄA‚Ç‚Ì‹…‘Ì‚ğ‘I‘ğ‚µ‚½‚©”»’è‚µA‚»‚ÌID‚ğ return ‚·‚éB
 
-	GLubyte c[3]; //åº§æ¨™(x, y)ã®è‰²ã‚’æ‰€å¾—
+	GLubyte c[3]; //À•W(x, y)‚ÌF‚ğŠ“¾
 	glReadPixels(x, y, 1, 1, GL_RGB, GL_UNSIGNED_BYTE, c);
 
-	return (c[0]==255) ? -1:(int)c[0]; // â˜…é©åˆ‡ãªå€¤ã‚’è¿”ã™ã‚ˆã†ã«ã™ã‚‹
+	return (c[0]==255) ? -1:(int)c[0]; // š“KØ‚È’l‚ğ•Ô‚·‚æ‚¤‚É‚·‚é
 }
 
-// æç”»é–¢æ•°
+// •`‰æŠÖ”
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 
-	// é€è¦–æŠ•å½±å¤‰æ›è¡Œåˆ—ã®è¨­å®š
+	// “§‹“Š‰e•ÏŠ·s—ñ‚Ìİ’è
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluPerspective(30.0, g_WindowWidth / (float)g_WindowHeight, 1.0, 100.0);
 
-	// ã‚«ãƒ¡ãƒ©ãƒ“ãƒ¥ãƒ¼åº§æ¨™ã¸ã®å¤‰æ›è¡Œåˆ—ã®è¨­å®š
+	// ƒJƒƒ‰ƒrƒ…[À•W‚Ö‚Ì•ÏŠ·s—ñ‚Ìİ’è
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt(0, 0, 30, 0, 0, 0, 0, 1, 0);
 
-	// 3ã¤ã®çƒä½“ã‚’æç”»
+	// 3‚Â‚Ì‹…‘Ì‚ğ•`‰æ
 	for (int i = 0; i < 3; i++) {
-		// çƒä½“ã”ã¨ã«è‰²ã‚’å¤‰æ›´ã™ã‚‹
+		// ‹…‘Ì‚²‚Æ‚ÉF‚ğ•ÏX‚·‚é
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, g_Sphere[i].color);
 
-		// çƒä½“ã®æç”»ã‚’è¡Œã†
+		// ‹…‘Ì‚Ì•`‰æ‚ğs‚¤
 		g_Sphere[i].display();
 	}
 
-	// çƒãŒé¸æŠã•ã‚Œã¦ã„ã‚‹çŠ¶æ…‹ã§ã‚ã‚Œã°ã€ã‚¯ãƒªãƒƒã‚¯åº§æ¨™ã«é–¢ã™ã‚‹æƒ…å ±ã‚’è¡¨ç¤ºã™ã‚‹
+	// ‹…‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éó‘Ô‚Å‚ ‚ê‚ÎAƒNƒŠƒbƒNÀ•W‚ÉŠÖ‚·‚éî•ñ‚ğ•\¦‚·‚é
 	if (g_SelectedSphereID != -1) {
-		// ç…§æ˜åŠ¹æœãªã—ã§å˜è‰²æç”»
+		// Æ–¾Œø‰Ê‚È‚µ‚Å’PF•`‰æ
 		glDisable(GL_LIGHTING);
 		glDisable(GL_DEPTH_TEST);
 
-		// ã‚¯ãƒªãƒƒã‚¯åº§æ¨™ã«ç‚¹ã‚’æç”»
+		// ƒNƒŠƒbƒNÀ•W‚É“_‚ğ•`‰æ
 		glColor3f(1, 0, 0);
 		glPointSize(5.f);
 		glBegin(GL_POINTS);
 		glVertex3d(g_SelectedPos.x, g_SelectedPos.y, g_SelectedPos.z);
 		glEnd();
 
-		// æ–‡å­—ã‚’æç”»ã™ã‚‹ä½ç½®ã®æŒ‡å®š
+		// •¶š‚ğ•`‰æ‚·‚éˆÊ’u‚Ìw’è
 		glRasterPos3d(g_SelectedPos.x, g_SelectedPos.y, g_SelectedPos.z);
 
-		// è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã®æ§‹ç¯‰
-		// â€»ã‚‚ã— sprintf_s ã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹å ´åˆã¯ sprintf ã‚’ä½¿ã†ã“ã¨
+		// •\¦‚·‚é•¶š—ñ‚Ì\’z
+		// ¦‚à‚µ sprintf_s ‚ÅƒRƒ“ƒpƒCƒ‹ƒGƒ‰[‚É‚È‚éê‡‚Í sprintf ‚ğg‚¤‚±‚Æ
 		char str[256];
 		sprintf_s(str, "sphere[%d] (%lf, %lf, %lf)", g_SelectedSphereID,
 			g_SelectedPos.x, g_SelectedPos.y, g_SelectedPos.z);
 
-		// æ–‡å­—åˆ—ã‚’1æ–‡å­—ãšã¤æç”»
+		// •¶š—ñ‚ğ1•¶š‚¸‚Â•`‰æ
 		for (int i = 0; str[i] != '\0'; i++) {
 			glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, str[i]);
 		}
@@ -184,7 +184,7 @@ void display() {
 	glutSwapBuffers();
 }
 
-// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºãŒå¤‰æ›´ã•ã‚ŒãŸã¨ãã®å‡¦ç†
+// ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚ª•ÏX‚³‚ê‚½‚Æ‚«‚Ìˆ—
 void resize(int w, int h) {
 	if (h < 1) return;
 
@@ -194,43 +194,43 @@ void resize(int w, int h) {
 	g_WindowHeight = h;
 }
 
-// ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã«åŸºã¥ãé¸æŠå‡¦ç†
+// ƒ}ƒEƒXƒJ[ƒ\ƒ‹ˆÊ’u‚ÉŠî‚Ã‚­‘I‘ğˆ—
 void MousePick(int x, int _y) {
 
 	printf("MousePick(%d, %d)\n", x, _y);
 
-	// ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯ã§å¾—ã‚‰ã‚Œã‚‹åº§æ¨™ã¯å·¦ä¸‹åŸç‚¹ãªã®ã§ OpenGLã®åº§æ¨™ç³»ã¨åˆã‚ã›ã‚‹ãŸã‚ã«yåº§æ¨™ã‚’åè»¢ã™ã‚‹
+	// ƒ}ƒEƒXƒNƒŠƒbƒN‚Å“¾‚ç‚ê‚éÀ•W‚Í¶‰ºŒ´“_‚È‚Ì‚Å OpenGL‚ÌÀ•WŒn‚Æ‡‚í‚¹‚é‚½‚ß‚ÉyÀ•W‚ğ”½“]‚·‚é
 	const int y = g_WindowHeight - _y;
 
 	g_SelectedSphereID = pickSphere(x, y);
 
-	// çƒãŒé¸æŠã•ã‚Œã¦ã„ãªã„ãªã‚‰ä½•ã‚‚ã—ãªã„
+	// ‹…‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢‚È‚ç‰½‚à‚µ‚È‚¢
 	if (g_SelectedSphereID == -1) return;
 
-	// ã‚¯ãƒªãƒƒã‚¯ã—ãŸå ´æ‰€ã®åº§æ¨™å€¤ï¼ˆ3æ¬¡å…ƒåº§æ¨™ï¼‰ã‚’å–å¾—ã™ã‚‹
+	// ƒNƒŠƒbƒN‚µ‚½êŠ‚ÌÀ•W’li3ŸŒ³À•Wj‚ğæ“¾‚·‚é
 
-	// â˜…æˆæ¥­ã‚¹ãƒ©ã‚¤ãƒ‰ã‚’å‚è€ƒã«æ¬¡ã®ã‚ˆã†ãªãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹
-	// â˜…ç¾åœ¨ã®ãƒ¢ãƒ‡ãƒ«ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã‚’å–å¾—ã™ã‚‹
-	// â˜…ç¾åœ¨ã®é€è¦–æŠ•å½±è¡Œåˆ—ã‚’å–å¾—ã™ã‚‹
-	// â˜…ç¾åœ¨ã®ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã®æƒ…å ±ã‚’å–å¾—
-	// â˜…ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯ã—ãŸä½ç½®ã®å¥¥è¡Œãæƒ…å ±ï¼ˆzå€¤ï¼‰ã‚’å–å¾—ã™ã‚‹
-	// â˜…ä¸Šè¨˜ã®æƒ…å ±ã«åŸºã¥ã„ã¦ã€ã‚¯ãƒªãƒƒã‚¯ã—ãŸä½ç½®ã®ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã‚’å–å¾—ã™ã‚‹
-	// â˜…å–å¾—ã—ãŸå€¤ã¯ã€g_SelectedPos ã«æ ¼ç´ã—ã¦ãŠãï¼ˆâ†è¡¨ç¤ºã®æ™‚ã«ä½¿ç”¨ã™ã‚‹ï¼‰
+	// šö‹ÆƒXƒ‰ƒCƒh‚ğQl‚ÉŸ‚Ì‚æ‚¤‚ÈƒvƒƒOƒ‰ƒ€ƒR[ƒh‚ğ’Ç‰Á‚·‚é
+	// šŒ»İ‚Ìƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚ğæ“¾‚·‚é
+	// šŒ»İ‚Ì“§‹“Š‰es—ñ‚ğæ“¾‚·‚é
+	// šŒ»İ‚Ìƒrƒ…[ƒ|[ƒg‚Ìî•ñ‚ğæ“¾
+	// šƒ}ƒEƒXƒNƒŠƒbƒN‚µ‚½ˆÊ’u‚Ì‰œs‚«î•ñiz’lj‚ğæ“¾‚·‚é
+	// šã‹L‚Ìî•ñ‚ÉŠî‚Ã‚¢‚ÄAƒNƒŠƒbƒN‚µ‚½ˆÊ’u‚Ìƒ[ƒ‹ƒhÀ•W‚ğæ“¾‚·‚é
+	// šæ“¾‚µ‚½’l‚ÍAg_SelectedPos ‚ÉŠi”[‚µ‚Ä‚¨‚­i©•\¦‚Ì‚Ég—p‚·‚éj
 
-	double M[16]; //ãƒ¢ãƒ‡ãƒ«ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã®å–å¾—
+	double M[16]; //ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìæ“¾
 	glGetDoublev(GL_MODELVIEW_MATRIX, M);
 
-	double P[16]; //é€è¦–æŠ•å½±è¡Œåˆ—ã®å–å¾—
+	double P[16]; //“§‹“Š‰es—ñ‚Ìæ“¾
 	glGetDoublev(GL_PROJECTION_MATRIX, P);
 
-	int V[4]; //ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆã®æƒ…å ±ã‚’å–å¾—
+	int V[4]; //ƒrƒ…[ƒ|[ƒg‚Ìî•ñ‚ğæ“¾
 	glGetIntegerv(GL_VIEWPORT, V);
 
 
-	float z; //(x,_y)ã®å¥¥è¡Œå€¤(ãƒ‡ãƒ—ã‚¹)ã‚’å–å¾—
+	float z; //(x,_y)‚Ì‰œs’l(ƒfƒvƒX)‚ğæ“¾
 	glReadPixels(x, y, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &z);
 
-	double objx, objy, objz; // ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã‚’è¨ˆç®—
+	double objx, objy, objz; // ƒ[ƒ‹ƒhÀ•W‚ğŒvZ
 	gluUnProject(x, y, z, M, P, V, &objx, &objy, &objz);
 
 	g_SelectedPos.x = objx;
@@ -239,25 +239,25 @@ void MousePick(int x, int _y) {
 
 }
 
-// ãƒã‚¦ã‚¹ã‚¯ãƒªãƒƒã‚¯ã®ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
+// ƒ}ƒEƒXƒNƒŠƒbƒN‚ÌƒCƒxƒ“ƒgˆ—
 void mouse(int button, int state, int x, int y) {
 	if (state == GLUT_DOWN) MousePick(x, y);
 	glutPostRedisplay();
 }
 
-// ãƒã‚¦ã‚¹ãƒ‰ãƒ©ãƒƒã‚°ã®ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
+// ƒ}ƒEƒXƒhƒ‰ƒbƒO‚ÌƒCƒxƒ“ƒgˆ—
 void motion(int x, int y) {
 	MousePick(x, y);
 	glutPostRedisplay();
 }
 
-// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã¨ãã®ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†
+// ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«‚ÌƒCƒxƒ“ƒgˆ—
 void keyboard(unsigned char key, int x, int y) {
 	switch (key) {
 	case 'q':
 	case 'Q':
 	case '\033':
-		exit(0);  /* '\033' ã¯ ESC ã® ASCII ã‚³ãƒ¼ãƒ‰ */
+		exit(0);  /* '\033' ‚Í ESC ‚Ì ASCII ƒR[ƒh */
 	default:
 		break;
 	}
@@ -267,7 +267,7 @@ void keyboard(unsigned char key, int x, int y) {
 
 
 void init() {
-	// 3ã¤ã®çƒä½“ã®ä½ç½®ã¨è‰²ã‚’è¨­å®šã—ã¦ãŠã
+	// 3‚Â‚Ì‹…‘Ì‚ÌˆÊ’u‚ÆF‚ğİ’è‚µ‚Ä‚¨‚­
 	g_Sphere[0].position.set(-5, 0, 0);
 	g_Sphere[1].position.set(0, 0, 0);
 	g_Sphere[2].position.set(5, 0, 0);
@@ -276,9 +276,9 @@ void init() {
 	g_Sphere[2].setColor(0, 0, 1);
 
 	glClearDepth(1000.0);
-	glClearColor(1, 1, 1, 1); // èƒŒæ™¯ã®è‰²ã‚’ç™½ã«è¨­å®š
+	glClearColor(1, 1, 1, 1); // ”wŒi‚ÌF‚ğ”’‚Éİ’è
 
-	// ç…§æ˜ã®è¨­å®š
+	// Æ–¾‚Ìİ’è
 	float lightAmbientColor[] = { 0.2f, 0.2f, 0.2f, 0.0f };
 	float lightDiffuseColor[] = { 1.f, 1.f, 1.f, 0.0f };
 	float lightSpecularColor[] = { 0.4f, 0.4f, 0.4f, 0.0f };
@@ -290,7 +290,7 @@ void init() {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecularColor);
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
 
-	// æè³ªã®è¨­å®š
+	// Ş¿‚Ìİ’è
 	float specularColor[] = { 0.8f, 0.8f, 0.8f, 1.0f };
 	float ambientColor[] = { 0.2f, 0.2f, 0.2f, 1.0f };
 	float diffuseColor[] = { 1.f, 0.f, 0.f, 1.f };
