@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\RYOTA\Desktop\CG_Cpp\7\Project3\Project3\Source.cpp(94,29): warning C4018: '>=': signed と unsigned の数値を比較しようとしました。
+C:\Users\RYOTA\Desktop\CG_Cpp\7\Project3\Project3\Source.cpp(123,29): warning C4018: '>=': signed と unsigned の数値を比較しようとしました。
+C:\Users\RYOTA\Desktop\CG_Cpp\7\Project3\Project3\Source.cpp(134): error C4700: 初期化されていないローカル変数 'loop' が使用されます
