@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\RYOTA\Desktop\CG_Cpp\10\Project2\Project2\Source.cpp(50,1): warning C4305: '引数': 'double' から 'GLfloat' へ切り詰めます。
+C:\Users\RYOTA\Desktop\CG_Cpp\10\Project2\Project2\Source.cpp(157,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\RYOTA\Desktop\CG_Cpp\10\Project2\Project2\Source.cpp(239,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Project2.vcxproj -> C:\Users\RYOTA\Desktop\CG_Cpp\10\Project2\Debug\Project2.exe
