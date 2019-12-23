@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\RYOTA\Desktop\CG_Cpp\10\Project1\Project1\Source.cpp(145,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+C:\Users\RYOTA\Desktop\CG_Cpp\10\Project1\Project1\Source.cpp(225,20): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Project1.vcxproj -> C:\Users\RYOTA\Desktop\CG_Cpp\10\Project1\Debug\Project1.exe
